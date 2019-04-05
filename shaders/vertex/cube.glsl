@@ -1,10 +1,12 @@
-attribute vec3 a_position;
-attribute vec3 a_color;
+attribute vec3 aVertexPosition;
+attribute vec2 aTextureCoord;
+
 uniform mat4 u_cube;
 uniform mat4 u_camera;
-varying vec3 v_color;
+varying vec2 vTextureCoord;
+
 
 void main(void) {
-    v_color = a_color;
-    gl_Position = u_camera * u_cube * vec4(a_position, 1.0);
+    gl_Position = u_camera * u_cube * vec4(aVertexPosition, 1.0);
+    vTextureCoord = aTextureCoord;
 }
